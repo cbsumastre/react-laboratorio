@@ -16,7 +16,7 @@ Os aconsejamos que si queréis apostar por React hagáis varios ejercicios. Pod�
 
 En el ejercicio básico vamos a buscar el listado de miembros de Github de la organización que indique el usuario.
 
-**Punto de partida**: [link](https://github.com/Lemoncode/master-frontend-lemoncode/tree/master/04-frameworks/01-react/04-basic-app/03-list)
+**Punto de partida**: [link](https://github.com/Lemoncode/master-frontend-lemoncode/tree/master/04-frameworks/01-react/04-basic-app/03-list){:target="_blank"}
 
 ### Enunciado
 
@@ -32,7 +32,7 @@ Puntos opcionales:
 - Añade paginación.
 - Añade Material UI.
 - Añadir otra página y:
-    - Tirar de la API rest de [Rick y Morty](https://rickandmortyapi.com/) para mostrar la lista de personajes de la serie.
+    - Tirar de la API rest de [Rick y Morty](https://rickandmortyapi.com/){:target="_blank"} para mostrar la lista de personajes de la serie.
     - Implementar la búsqueda.
     - Implementar use Debounce.
     - Mostrar detalle del actor seleccionado.
