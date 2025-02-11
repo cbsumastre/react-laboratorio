@@ -4,7 +4,7 @@
 
 Laboratorio del módulo de React, lo hemos divido en dos secciones:
 - **Básico**: si queréis simplemente practicar el mínimo de esta parte y aprobarla (tenéis opciones para subir nota) y centraros en otro framework / librería.
-- **Más laborartorios**: para trabajar con la tecnología y empezar a hincar diente.
+- **Más laboratorios**: para trabajar con la tecnología y empezar a hincar diente.
 
 Os aconsejamos que si queréis apostar por React hagáis varios ejercicios. Podéis arrancar por los básicos, y continuar saltando de nivel.
 
