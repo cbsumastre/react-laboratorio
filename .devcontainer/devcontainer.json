@@ -1,32 +1,28 @@
 {
 	"name": "React Laboratorio",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"context": "."
-	},
-	"customizations": {
-		"vscode": {
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "customizations": {
+        "vscode": {
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "bash",
 				"editor.insertSpaces": true
 			},
 			"extensions": [
-				"ms-vscode.live-server",
-				"johnstoncode.svn-scm",
 				"bradlc.vscode-tailwindcss",
 				"sdras.night-owl",
 				"ms-vscode.vscode-typescript-next",
 				"yoavbls.pretty-ts-errors",
-				"ritwickdey.LiveServer",
 				"tomoki1207.pdf"
 			]
 		}
-	},
-	"remoteUser": "vscode",
-	"mounts": [
-		"source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
-	],
-	"workspaceFolder": "/workspace",
-	"postCreateCommand": "bash ./.devcontainer/scripts/install-nvm.sh",
-	"shutdownAction": "stopContainer"
-}
+    },
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+    ],
+    "remoteUser": "vscode",
+    "postCreateCommand": "bash ./.devcontainer/scripts/install-nvm.sh",
+    "shutdownAction": "stopContainer"
+} 
