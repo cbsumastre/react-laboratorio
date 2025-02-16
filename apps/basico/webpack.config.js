@@ -1,4 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Dotenv = require("dotenv-webpack")
+
 const path = require("path");
 const basePath = __dirname;
 
@@ -8,7 +11,7 @@ module.exports = {
     extensions: [".js", ".ts", ".tsx"],
   },
   entry: {
-    app: ["./index.tsx", "./styles.css"],
+    app: ["./index.tsx", "./styles.scss"],
   },
   devtool: "eval-source-map",
   stats: "errors-only",
@@ -46,6 +49,11 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+      },
     ],
   },
   plugins: [
@@ -54,5 +62,12 @@ module.exports = {
       filename: "index.html", //Name of file in ./dist/
       template: "index.html", //Name of template in ./src
     }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    }),
+    new Dotenv({
+      path: "./.env"
+    })
   ],
 };
