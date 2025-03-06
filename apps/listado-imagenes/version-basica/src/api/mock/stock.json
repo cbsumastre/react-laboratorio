@@ -1,0 +1,103 @@
+{
+    "cats": [
+        {
+            "id": "1dc740ec-fde7-4608-802c-19bad88e5a7f",
+            "pic_url": "stock/cats/1dc740ec-fde7-4608-802c-19bad88e5a7f.jpg",
+            "name": "Chewbacca"
+        },
+        {
+            "id": "3add5153-3960-4663-af16-802df6bd4a7d",
+            "pic_url": "stock/cats/3add5153-3960-4663-af16-802df6bd4a7d.jpg",
+            "name": "Yoda"
+        },
+        {
+            "id": "b0eb232a-5815-4368-895e-6b3c5f22a2bf",
+            "pic_url": "stock/cats/b0eb232a-5815-4368-895e-6b3c5f22a2b.jpg",
+            "name": "Gandalf"
+        },
+        {
+            "id": "6b0603db-af23-4265-8618-ec0949b3f1cf",
+            "pic_url": "stock/cats/6b0603db-af23-4265-8618-ec0949b3f1cf.jpg",
+            "name": "Scooby"
+        },
+        {
+            "id": "3bc76b53-4927-478c-aa76-9ec3cc8390a0",
+            "pic_url": "stock/cats/3bc76b53-4927-478c-aa76-9ec3cc8390a0.jpg",
+            "name": "Garfield"
+        },
+        {
+            "id": "816a0586-1d9a-45f9-b1fd-6b859f032917",
+            "pic_url": "stock/cats/816a0586-1d9a-45f9-b1fd-6b859f032917.jpg",
+            "name": "Azrael"
+        },
+        {
+            "id": "7e904c09-b9f9-43b1-8f91-c4e3d77b4629",
+            "pic_url": "stock/cats/7e904c09-b9f9-43b1-8f91-c4e3d77b4629.jpg",
+            "name": "Simba"
+        },
+        {
+            "id": "a1bc202d-e058-42ab-a29e-657270c2ade1",
+            "pic_url": "stock/cats/a1bc202d-e058-42ab-a29e-657270c2ade1.jpg",
+            "name": "Gizmo"
+        },
+        {
+            "id": "e562841d-af25-459c-8ea7-5f43e892061b",
+            "pic_url": "stock/cats/e562841d-af25-459c-8ea7-5f43e892061b.jpg",
+            "name": "Princesa"
+        }
+    ],
+    "dogs": [
+        {
+            "id": "36da9886-4bee-4775-b3c7-e4164aad5269",
+            "pic_url": "stock/dogs/36da9886-4bee-4775-b3c7-e4164aad5269.jpg",
+            "name": "Patatilla"
+        },
+        {
+            "id": "41597108-21e9-4148-9e7c-a80fd4edfa12",
+            "pic_url": "stock/dogs/41597108-21e9-4148-9e7c-a80fd4edfa12.jpg",
+            "name": "Chispitas"
+        },
+        {
+            "id": "5576c610-e2fa-482d-a20f-4e328cac26d4",
+            "pic_url": "stock/dogs/5576c610-e2fa-482d-a20f-4e328cac26d4.jpg",
+            "name": "Peluso"
+        },
+        {
+            "id": "e1abbc46-94c1-4603-ae70-f4d90da999dc",
+            "pic_url": "stock/dogs/e1abbc46-94c1-4603-ae70-f4d90da999dc.jpg",
+            "name": "Pistacho"
+        },
+        {
+            "id": "42cc00d9-5cfc-40a0-b877-760032b476f9",
+            "pic_url": "stock/dogs/42cc00d9-5cfc-40a0-b877-760032b476f9.jpg",
+            "name": "Tequila"
+        },
+        {
+            "id": "0c3e11f3-91ac-41eb-a0ee-598f563779fb",
+            "pic_url": "stock/dogs/0c3e11f3-91ac-41eb-a0ee-598f563779fb.jpg",
+            "name": "Tango"
+        },
+        {
+            "id": "53c8c55d-a0c4-44b9-91df-532b9031b1e2",
+            "pic_url": "stock/dogs/53c8c55d-a0c4-44b9-91df-532b9031b1e2.jpg",
+            "name": "Pancho"
+        },
+        {
+            "id": "90f28dca-f103-461d-9a71-124e86306f12",
+            "pic_url": "stock/dogs/90f28dca-f103-461d-9a71-124e86306f12.jpg",
+            "name": "Atenea"
+        },
+        {
+            "id": "309d3171-a76d-43c8-9003-2a0154b95cf7",
+            "pic_url": "stock/dogs/309d3171-a76d-43c8-9003-2a0154b95cf7.jpg",
+            "name": "Lola"
+        },
+        {
+            "id": "e6110920-207e-4913-9f70-a7b7cfe059f8",
+            "pic_url": "stock/dogs/e6110920-207e-4913-9f70-a7b7cfe059f8.jpg",
+            "name": "Martín"
+        }
+
+        
+    ]
+}
