@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { GitHubContext } from "./github-context";
-import { AppLayout } from "../layouts/app.layout";
 import { router } from "../router";
 
 interface MemberDetailEntity {
@@ -35,15 +34,13 @@ export const MemberDetail: React.FC = () => {
 
 
   return (
-    <AppLayout>
-      <div className="github-container-detail">
-        <h2>Detail {member.login}</h2>
-        <img src={member.avatar_url} />
-        <p>{member.name}</p>
-        {member.company && <p><span className="label">Work in:</span> <span className="value">{member.company}</span></p>}
-        {member.bio && <p><span className="label">Bio:</span> <span className="value">{member.bio}</span></p>}
-        <Link to={router.github.list}>Back to Members of {organization}</Link>
-      </div>
-    </AppLayout>
+    <div className="github-container-detail">
+      <h2>Detail {member.login}</h2>
+      <img src={member.avatar_url} />
+      <p>{member.name}</p>
+      {member.company && <p><span className="label">Work in:</span> <span className="value">{member.company}</span></p>}
+      {member.bio && <p><span className="label">Bio:</span> <span className="value">{member.bio}</span></p>}
+      <Link to={router.listGithub}>Volver a Members de {organization}</Link>
+    </div>
   );
 };

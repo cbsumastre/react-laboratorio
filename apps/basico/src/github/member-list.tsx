@@ -1,7 +1,6 @@
 import React from "react";
 import { MemberCard } from "./member-card";
 import { GitHubContext } from "./github-context";
-import { AppLayout } from "../layouts/app.layout";
 
 export interface MemberEntity {
   id: string;
@@ -16,8 +15,6 @@ export const MemberList: React.FC = () => {
   const [triggerSearch, setTriggerSearch] = React.useState(true)
   const [organizationSearch, setOrganizationSearch] = React.useState("")
   const [notFound, setNotFound] = React.useState(false)
-
-  console.log(organization)
 
   React.useEffect(() => {
     setMembers([])
@@ -41,7 +38,6 @@ export const MemberList: React.FC = () => {
   }
 
   return (
-    <AppLayout>
       <div className="github-container">
         {organizationSearch && <h1>Members of {organizationSearch}</h1>}
         <div className="github-form">
@@ -65,6 +61,5 @@ export const MemberList: React.FC = () => {
           <div className="no-members-found">{organization} has no members on github</div>
         }
       </div>
-    </AppLayout>
   );
 };

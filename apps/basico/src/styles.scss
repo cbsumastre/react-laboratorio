@@ -1,11 +1,13 @@
-$primary-color: white;
-$secondary-color: #0B1215;
+$white-color: white;
+$black-color: #0B1215;
+$grey-color: #808080;
 $border-radius: 6px;
 
 body {
   padding: 0;
   margin: 0;
   font-family: "Poppins", serif, sans-serif;
+  background-color: $black-color;
 }
 
 /**** MENU PRINCIPAL ****/
@@ -18,24 +20,22 @@ body {
   height: 100vh;
   gap: 20px;
   flex-direction: column;
-  background-color: $primary-color;
 
   .menu {
     display: flex;
     gap: 20px;
     width: 100%;
     height: 100%;
-    background-color: $secondary-color;
     border-radius: $border-radius;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: $primary-color;
+    color: $white-color;
 
     a {
       text-decoration: none;
       font-size: 1.1rem;
-      color: $primary-color;
+      color: $white-color;
 
       &:hover {
         text-decoration: underline;
@@ -47,28 +47,27 @@ body {
     position: absolute;
     bottom: 25px;
     text-align: center;
-    color: $primary-color;
+    color: $white-color;
     padding: 15px;
   }
-  
- 
+
+
 
 }
 
 /**** LAYOUT ****/
 .app-container {
-  background-color: $secondary-color;
 
   .header {
     padding-top: 25px;
     text-align: center;
-    color: $primary-color;
+    color: $white-color;
     width: 100%;
 
     a {
       text-decoration: underline;
       font-size: 1.1rem;
-      color: $primary-color;
+      color: $white-color;
 
       &:hover {
         text-decoration: underline;
@@ -85,10 +84,9 @@ body {
 .github-container {
   display: flex;
   flex-direction: column;
-  background-color: $secondary-color;
-  color: $primary-color;
+  color: $white-color;
   padding: 25px;
-  min-height: calc(100vh - 55px);
+  min-height: calc(100vh - 120px);
 
 
   h1 {
@@ -115,8 +113,8 @@ body {
       height: 40px;
       border-radius: $border-radius;
       border: none;
-      background-color: $primary-color;
-      color: $secondary-color;
+      background-color: $white-color;
+      color: $black-color;
       cursor: pointer;
     }
   }
@@ -148,7 +146,7 @@ body {
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        border: 1px solid $secondary-color;
+        border: 1px solid $black-color;
 
         &:hover {
           transform: scale(1.1);
@@ -158,7 +156,7 @@ body {
   }
 
   .no-members-found {
-    color: $primary-color;
+    color: $white-color;
     text-align: center;
   }
 }
@@ -166,9 +164,8 @@ body {
 .github-container-detail {
   display: flex;
   flex-direction: column;
-  background-color: $secondary-color;
-  color: $primary-color;
-  height: 100vh;
+  color: $white-color;
+  min-height: calc(100vh - 60px);
   justify-content: center;
   align-items: center;
   padding: 0px 15px;
@@ -177,12 +174,13 @@ body {
     max-width: 200px;
     max-height: 200px;
     border-radius: 16px;
-    border: 1px solid $secondary-color;
+    border: 1px solid $black-color;
   }
 
   p {
     width: 400px;
     text-align: center;
+
     .label {
       font-weight: 900;
     }
@@ -193,7 +191,151 @@ body {
   }
 
   a {
-    color: $primary-color;
+    color: $white-color;
     text-decoration: underline;
   }
+}
+
+/***** RICK Y MORTY *******/
+.rickmorty-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 52px);
+
+  .form {
+    padding: 50px;
+
+    input {
+      height: 40px;
+      padding-left: 10px;
+      width: 350px;
+    }
+  }
+
+
+  .characters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    color: $white-color;
+    transition: all .4s ease-in-out;
+    padding: 25px 50px 25px 50px;
+
+    .character-card {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      header {
+        .character-name {
+          font-size: 1em;
+          text-align: center;
+          text-overflow: ellipsis;
+        }
+      }
+
+      img {
+        -o-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        width: 125px;
+      }
+
+      .filtered {
+        -o-filter: grayscale(0%);
+        -moz-filter: grayscale(0%);
+        -webkit-filter: grayscale(0%);
+        filter: grayscale(0%);
+      }
+
+      footer {
+        padding-top: 15px;
+      }
+    }
+  }
+}
+
+.character-detail {
+  display: flex;
+  flex-direction: column;
+  color: $white-color;
+  min-height: calc(100vh - 60px);
+  justify-content: center;
+  align-items: center;
+  padding: 0px 15px;
+
+  .text-gray {
+    background-color: $white-color;
+    color: $black-color;
+    padding: 5px;
+  }
+
+  header {
+    .character-name {
+      font-size: 1.5em;
+      text-align: center;
+    }
+    padding-bottom: 20px;
+  }
+
+  img {
+    width: 200px;
+  }
+
+  .last-location, .first-seen {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+
+  p {
+    width: 400px;
+    text-align: center;
+
+    .label {
+      font-weight: 900;
+    }
+
+    .value {
+      font-size: .9rem;
+    }
+  }
+
+  a {
+    color: $white-color;
+    text-decoration: underline;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 35px;
+    align-items: center;
+  }
+}
+
+
+
+
+.status-Alive {
+  color: #43E7AB;
+}
+
+.status-Dead {
+  color: #E85456;
+}
+
+.status-unknown {
+  color: #FFFF00;
 }
