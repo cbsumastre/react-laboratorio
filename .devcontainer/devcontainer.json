@@ -14,8 +14,7 @@
 				"bradlc.vscode-tailwindcss",
 				"sdras.night-owl",
 				"ms-vscode.vscode-typescript-next",
-				"yoavbls.pretty-ts-errors",
-				"tomoki1207.pdf"
+				"yoavbls.pretty-ts-errors"
 			]
 		}
     },
