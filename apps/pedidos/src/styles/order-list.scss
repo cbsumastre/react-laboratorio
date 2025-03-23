@@ -1,0 +1,14 @@
+@use "_base.scss" as *;
+
+.order-list {
+    border: 1px solid $border-color;
+    min-width: 1280px;
+    margin-top: 20px;
+  
+    .order-header {
+      display: grid;
+      grid-template-columns: 1fr 2fr 3fr 1fr;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+}
