@@ -46,11 +46,7 @@ interface PictureInfo {
 - En el carrio iría de la otra manera, si deschequo el carrito hago un check y la ventana de turno estará usando un useEffect escuchando la ventana del carrito para actualizar sus datos. ✅
 
 #### Ideas opcionales:
-- Haz que el carrito se pueda ocultar. 
+- Haz que el carrito se pueda ocultar. ✅
 - Implementa una página de "checkout" para hacer el pedido.
 - Estílalo con Material UI.
 - Añade una opción de vaciar carrito.
-- Catálogo en local storage 
-
-
-

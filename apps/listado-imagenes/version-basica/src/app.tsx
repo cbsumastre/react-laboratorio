@@ -6,7 +6,6 @@ import { Kitties } from './kitties';
 import { Cart } from './cart';
 import { Layout } from './layout';
 
-
 function App() {
   return (
     <ShopProvider>

@@ -3,7 +3,7 @@ $background-color: #F8F8FF;
 $size-icon: 16px;
 
 #root {
-    max-width: 1280px;
+    max-width: 980px;
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
@@ -23,7 +23,6 @@ $size-icon: 16px;
 
 body {
     margin: 0;
-    width: 100vw;
     height: 100vh;
 }
 
@@ -55,6 +54,13 @@ header {
                 a {
                     color: $color;
                 }
+
+            }
+
+            li:last-child {
+                font-weight: 600;
+                margin-left: auto;
+                cursor: pointer;
             }
         }
     }
@@ -76,7 +82,6 @@ main {
 
     .container-kitties,
     .container-puppies {
-        width: 100%;
         height: 100%;
         min-height: 400px;
         display: flex;
@@ -120,29 +125,79 @@ main {
     }
 
     .container-cart {
+        position: fixed;
+        right: -100%;
         width: 250px;
-        min-height: 300px;
-        height: 100%;
-        min-height: 600px;
-        font-size: 1.2em;
-        font-weight: 700;
-        padding: 10px 20px 10px 20px;
-        background-color: #2135470c;
+        max-height: 600px;
+        height: 100vh;
+        background: #2135470c;
         border-radius: 8px;
+        transition: right 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
 
         header {
+            padding-top: 25px;
             padding-bottom: 25px;
 
             img {
                 width: $size-icon*2;
                 vertical-align: middle;
             }
-
         }
+
+        .empty-cart {
+            text-align: center;
+            color: #6c757d;
+            margin-top: 20px;
+            font-size: .8em;
+        }
+
+        .card-buttons {
+            padding-top: 15px;
+
+            .cart-empty-button {
+                padding: 10px 15px 10px 15px;
+                background-color: transparent;
+                border: 1px solid #6c757d;
+                color: #6c757d;
+                font-size: 16px;
+                font-weight: 700;
+                border-radius: 6px;
+                cursor: pointer;
+
+                &:hover {
+                    color: white;
+                    background-color: #6c757d;
+                }
+            }
+
+            .cart-checkout-button {
+                padding: 10px 15px 10px 15px;
+                background-color: #6c757d;
+                border: 0px;
+                color: white;
+                font-size: 16px;
+                font-weight: 700;
+                border-radius: 6px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #51585e;
+                }
+            }
+        }
+
+
 
         .cart-card {
             padding: 5px;
             cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
 
             img {
                 width: $size-icon*2;
@@ -155,15 +210,18 @@ main {
                 height: cacl(200px/2);
                 object-fit: cover;
                 border-radius: 8px;
-               
+
             }
 
             .trash-icon {
+                width: 16px;
                 cursor: pointer;
             }
         }
+    }
 
-
+    .opened {
+        right: 5%;
     }
 }
 
