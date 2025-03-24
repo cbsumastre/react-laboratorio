@@ -155,7 +155,7 @@ main {
         }
 
         .card-buttons {
-            padding-top: 15px;
+            padding: 15px 0px 45px 0px;
 
             .cart-empty-button {
                 padding: 10px 15px 10px 15px;
@@ -168,8 +168,8 @@ main {
                 cursor: pointer;
 
                 &:hover {
-                    color: white;
-                    background-color: #6c757d;
+                    color: #E04242;
+                    border: 1px solid #E04242;
                 }
             }
 
