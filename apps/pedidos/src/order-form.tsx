@@ -1,68 +1,71 @@
 import React from "react";
 
 import "./styles/order-form.scss"
-import { Supplier } from "./types";
+
+import { getProveedores, OrderHeader, OrderStatus, Supplier } from "./types";
+
+interface Props {
+    header: OrderHeader;
+    importeTotal: number;
+    estado: OrderStatus;
+    enviar: () => void;
+}
 
 
-const proveedores: Supplier[] = [
-    { id: '1', descripcion: 'Proveedor A' },
-    { id: '2', descripcion: 'Proveedor B' },
-    { id: '3', descripcion: 'Proveedor C' },
-    { id: '4', descripcion: 'Proveedor D' },
-];
 
+export const OrderForm: React.FC<Props> = (props) => {
 
-export const OrderForm: React.FC = () => {
+    const { header, importeTotal, estado, enviar } = props;
 
     const [proveedorSeleccionado, setProveedorSeleccionado] = React.useState<Supplier>()
 
     const handleProveedorChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const proveedorId = e.target.value;
-        const proveedor = proveedores.find((p) => p.id === proveedorId);
+        const proveedor = getProveedores().find((p) => p.id === proveedorId);
         if (proveedor) {
             setProveedorSeleccionado(proveedor);
         }
     };
 
+    function handleEnviar(): void {
+        enviar()
+    }
+
     return (
-        <>
+        <header>
             <div className="order-form">
                 <h2>Pedido a proveedor</h2>
                 <div className="form-row">
                     <label>Número</label>
-                    <input type="text" />
-                </div>
-                <div className="form-row">
+                    <input type="text" className="numero-pedido" value={header.id} />
                     <label>Proveedor</label>
-                    <select value={proveedorSeleccionado?.id} onChange={handleProveedorChange}>
-                        {proveedores.map((proveedor) => (
-                            <option key={proveedor.id} value={proveedor.id}>
+                    <select value={proveedorSeleccionado?.id} onChange={handleProveedorChange} className="proveedor">
+                        {getProveedores().map((proveedor) => (
+                            <option key={proveedor.id} value={proveedor.id} selected={proveedor.id === header?.supplier?.id}>
                                 {proveedor.descripcion}
                             </option>
                         ))}
                     </select>
-                </div>
-                <div className="form-row">
                     <label>Fecha</label>
-                    <input type="date" />
+                    <input type="date" className="fecha"/>
                 </div>
                 <div className="form-row">
                     <label>Importe Total</label>
-                    <input type="text" />
-                </div>
-                <div className="form-row">
+                    <input type="text" className="importe-total" value={importeTotal} />
                     <label>Estado</label>
-                    <input type="text" />
+                    <input type="text" value={estado} />
                 </div>
-                <button className="disabled">Enviar</button>
+                <span className="enviar">
+                    <button className="disabled" onClick={handleEnviar}>Enviar</button>
+                </span>
             </div>
-            <div>
-                <div className="validation-buttons">
-                    <button>Validar</button>
-                    <button>Invalidar</button>
-                </div>
 
+            <div className="validation-buttons">
+                <button className="enabled">Validar</button>
+                <button className="enabled">Invalidar</button>
             </div>
-        </>
+
+
+        </header>
     );
 }

@@ -56,17 +56,17 @@ Plantéate arrancar por:
 
 - Un componente detalle del pedido:
 
-        - Le pasamos por propiedad:
+    - Le pasamos por propiedad:
 
-            - El listado de detalle del pedido.
+        - El listado de detalle del pedido.
 
-            - Callback para actualizar un array de entradas (validar/invalidar)
+        - Callback para actualizar un array de entradas (validar/invalidar)
 
-            - Callback para actualizar una cantidad monetaria (id/valor)
+        - Callback para actualizar una cantidad monetaria (id/valor)
 
-        - Aquí podemos evaluar si el listado de items seleccionados lo tenemos en el container, o si lo encapsulamos en el detalle (si lo subimos al container, lo que es el callback validar/invalidar no le harían falta parámetros para informar, el padre ya tiene la información).
+    - Aquí podemos evaluar si el listado de items seleccionados lo tenemos en el container, o si lo encapsulamos en el detalle (si lo subimos al container, lo que es el callback validar/invalidar no le harían falta parámetros para informar, el padre ya tiene la información).
 
-        - Para hacer la edición empieza fácil, un map y tira cada fila, también puedes usar una tabla de Material UI.
+    - Para hacer la edición empieza fácil, un map y tira cada fila, también puedes usar una tabla de Material UI.
 
 Con qué podemos jugar adicionalmente:
 

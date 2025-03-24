@@ -2,8 +2,9 @@
 
 .order-list {
     border: 1px solid $border-color;
-    min-width: 1280px;
+    min-width:$min-width;
     margin-top: 20px;
+    border-radius: 8px;
   
     .order-header {
       display: grid;
