@@ -1,0 +1,15 @@
+@use "_base.scss" as *;
+
+.order-list {
+    border: 1px solid $border-color;
+    min-width:$min-width;
+    margin-top: 20px;
+    border-radius: 8px;
+  
+    .order-header {
+      display: grid;
+      grid-template-columns: 1fr 2fr 3fr 1fr;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+}

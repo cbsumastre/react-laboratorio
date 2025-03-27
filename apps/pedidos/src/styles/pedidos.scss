@@ -1,0 +1,190 @@
+$color-white: #F5F5F5;
+$color-black: #1A0616;
+
+$color-button: #007bffd7;
+$color-button-hover: #007bff;
+$color-button-disabled: #ada6a6;
+
+$border-color: #ccc;
+
+$font-size-base: 16px;
+
+$min-width: 980px;
+
+body {
+    margin: 0px;
+    padding: 0px;
+    color: $color-black;
+}
+
+
+.container-app {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    width: 100vw;
+    height: 100vh;
+
+    font-family: "DM Sans", "Monserrat", "Lato", sans-serif;
+    font-size: $font-size-base;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.order-form {
+    border: 1px solid $border-color;
+    padding: 20px;
+    min-width: $min-width;
+    border-radius: 8px;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-row {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10px;
+        gap: 25px;
+        align-items: center;
+
+        label {
+            margin-bottom: 5px;
+            width: 100px;
+        }
+
+        input {
+            padding: 5px;
+        }
+
+        select {
+            height: 25px;
+        }
+
+        .numero-pedido,
+        .importe-total {
+            width: 100px;
+        }
+
+        .proveedor {
+            width: 250px;
+        }
+
+        .fecha {
+            width: 120px;
+        }
+    }
+
+    .enviar {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+
+        button {
+            padding: 10px 20px;
+            color: $color-white;
+            border: none;
+            margin-top: 10px;
+            padding: 15px;
+            border-radius: 8px;
+
+            &.disabled {
+                background-color: $color-button-disabled;
+            }
+
+            &.enabled {
+                cursor: pointer;
+                background-color: $color-button;
+
+                &:hover {
+                    background-color: $color-button-hover;
+                }
+
+            }
+        }
+    }
+}
+
+.validation-buttons {
+    display: flex;
+    margin-top: 20px;
+    gap: 15px;
+    width: 100%;
+
+    button {
+        padding: 10px 20px;
+        color: $color-white;
+        border: none;
+        margin-top: 10px;
+        padding: 15px;
+        border-radius: 8px;
+
+        &.disabled {
+            background-color: $color-button-disabled;
+        }
+
+        &.enabled {
+            cursor: pointer;
+            background-color: $color-button;
+
+            &:hover {
+                background-color: $color-button-hover;
+            }
+        }
+
+        &:last-child { /* Selecciona el último botón */
+            margin-left: auto; /* Alinea a la derecha */
+        }
+    }
+    
+    
+}
+
+.order-list {
+    border: 1px solid $border-color;
+    min-width: $min-width;
+    margin-top: 20px;
+    border-radius: 8px;
+
+    .order-header {
+        display: grid;
+        grid-template-columns: 1fr 2fr 3fr 1fr;
+        padding: 10px;
+        background-color: #f0f0f0;
+    }
+
+    .order-item {
+        display: grid;
+        grid-template-columns: 1fr 2fr 3fr 1fr;
+        padding: 10px;
+        border-bottom: 1px solid $border-color;
+
+        .estado-detalle {
+            width: 100px;
+        }
+
+        .descripcion-detalle {
+            width: 350px;
+        }
+
+        .importe-detalle {
+            width: 100px;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &:hover {
+            background-color: $border-color;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            align-self: center;
+        }
+    }
+}
