@@ -22,3 +22,10 @@ Puntos opcionales:
     - Implementar la búsqueda. ✅
     - Implementar use Debounce. ✅
     - Mostrar detalle del actor seleccionado. ✅
+
+##  Instrucciones
+| Instrucción               |                                                                         |
+| :------------------------ | :---------------------------------------------------------------------- |
+| `npm install`             | Instala las dependencias                                                |
+| `npm run start`             | Inicia el servidor de desarrollo en `http://localhost:8080/`          |
+| `npm run build`           | Construye el proyecto en el directorio dist                             |
