@@ -49,4 +49,12 @@ interface PictureInfo {
 - Haz que el carrito se pueda ocultar. ✅
 - Implementa una página de "checkout" para hacer el pedido.
 - Estílalo con Material UI.
-- Añade una opción de vaciar carrito.
+- Añade una opción de vaciar carrito. ✅
+- Ventana modal de confirmación para comprar ✅
+
+##  Instrucciones
+| Instrucción               |                                                                         |
+| :------------------------ | :---------------------------------------------------------------------- |
+| `npm install`             | Instala las dependencias                                                |
+| `npm run dev`             | Inicia el servidor de desarrollo en `http://localhost:5173/`            |
+| `npm run build`           | Construye el proyecto en el directorio dist                             |
