@@ -1,6 +1,6 @@
 import React from "react";
-import { PictureInfoSelected } from "./types";
-import { ShopContext } from "./shopContext";
+import { PictureInfoSelected } from "../types/pictureInfo";
+import { ShopContext } from "../contexts/shopContext";
 
 interface Props {
     item: PictureInfoSelected

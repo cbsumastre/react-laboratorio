@@ -1,5 +1,5 @@
 import stock from "./mock/stock.json"
-import { PictureInfo } from "../types";
+import { PictureInfo } from "../types/pictureInfo";
 
 interface Stock {
     id: string;

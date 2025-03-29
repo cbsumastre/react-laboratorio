@@ -1,8 +1,8 @@
 import React from "react";
-import { ShopContext } from "./shopContext";
-import { PictureInfoSelected } from "./types";
-import { getPuppies } from "./api";
-import { Card } from "./card";
+import { ShopContext } from "../contexts/shopContext";
+import { PictureInfoSelected } from "../types/pictureInfo";
+import { getPuppies } from "../api";
+import { Card } from "../components/card";
 
 export const Puppies: React.FC = () => {
     const shopContext = React.useContext(ShopContext);

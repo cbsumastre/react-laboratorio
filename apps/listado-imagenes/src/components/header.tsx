@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { ShopContext } from "./shopContext";
+import { ShopContext } from "../contexts/shopContext";
 
 export const Header: React.FC = () => {
     const shopContext = React.useContext(ShopContext);
@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
             <ul>
                 <li><NavLink to="/kitties" className={({ isActive }) => ((isActive || location.pathname === '/') ? 'active' : 'no-active')}>Kitties</NavLink></li>
                 <li><NavLink to="/puppies" className={({ isActive }) => (isActive ? 'active' : 'no-active')}>Puppies</NavLink></li>
-                <li onClick={handleOnClick}>{!shopContext?.isOpenCart ? `Ver Carrito (${shopContext?.cartItems.length})` : 'Ocultar Carrito'}</li>
+                <li onClick={handleOnClick}>{!shopContext?.isOpenCart ? `Ver Carrito` : 'Ocultar Carrito'}{` (${shopContext?.cartItems.length})`}</li>
             </ul>
         </nav>
     </header>

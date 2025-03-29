@@ -1,8 +1,8 @@
 import React from "react";
 
-import { getInfo } from "./api";
-import { ShopContext } from "./shopContext";
-import trashIcon from "./assets/trash2.svg"
+import { getInfo } from "../../api";
+import { ShopContext } from "../../contexts/shopContext";
+import trashIcon from "../../assets/trash2.svg"
 
 interface Props {
     id: string;
