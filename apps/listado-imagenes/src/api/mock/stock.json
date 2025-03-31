@@ -44,6 +44,11 @@
             "id": "e562841d-af25-459c-8ea7-5f43e892061b",
             "pic_url": "stock/cats/e562841d-af25-459c-8ea7-5f43e892061b.jpg",
             "name": "Princesa"
+        },
+        {
+            "id": "7c2ce31b-6d85-4a57-b67e-ae44c4b41870",
+            "pic_url": "stock/cats/7c2ce31b-6d85-4a57-b67e-ae44c4b41870.jpg",
+            "name": "Edgar"
         }
     ],
     "dogs": [
