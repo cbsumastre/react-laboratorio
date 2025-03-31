@@ -7,7 +7,7 @@ $color-button-disabled: #ada6a6;
 
 $border-color: #ccc;
 
-$font-size-base: 16px;
+$font-size-base: 14px;
 
 $min-width: 980px;
 
@@ -23,8 +23,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 20px;
-    width: 100vw;
+    padding: 100px 20px 20px 20px;
     height: 100vh;
 
     font-family: "DM Sans", "Monserrat", "Lato", sans-serif;
@@ -33,10 +32,10 @@ body {
     font-style: normal;
 }
 
-.order-form {
+.pedido-form {
     border: 1px solid $border-color;
     padding: 20px;
-    min-width: $min-width;
+    // min-width: $min-width;
     border-radius: 8px;
 
     h2 {
@@ -67,6 +66,15 @@ body {
         .numero-pedido,
         .importe-total {
             width: 100px;
+        }
+
+        .porcentaje-estado {
+            width: 50px;
+            border: none;
+            background: none;
+            font-weight: bold;
+            transition: all .3s ease-in-out;
+
         }
 
         .proveedor {
@@ -112,15 +120,13 @@ body {
     display: flex;
     margin-top: 20px;
     gap: 15px;
-    width: 100%;
 
     button {
-        padding: 10px 20px;
         color: $color-white;
         border: none;
         margin-top: 10px;
         padding: 15px;
-        border-radius: 8px;
+        border-radius: 6px;
 
         &.disabled {
             background-color: $color-button-disabled;
@@ -134,54 +140,56 @@ body {
                 background-color: $color-button-hover;
             }
         }
-
-        &:last-child { /* Selecciona el último botón */
-            margin-left: auto; /* Alinea a la derecha */
-        }
     }
-    
-    
+
+
 }
 
-.order-list {
+.pedido-list {
     border: 1px solid $border-color;
     min-width: $min-width;
     margin-top: 20px;
-    border-radius: 8px;
+    border-radius: 6px;
 
-    .order-header {
+    .cabecera {
         display: grid;
-        grid-template-columns: 1fr 2fr 3fr 1fr;
+        grid-template-columns: 1fr 2fr 3fr 1fr 0.3fr;
         padding: 10px;
         background-color: #f0f0f0;
     }
 
-    .order-item {
+    .detalle {
         display: grid;
-        grid-template-columns: 1fr 2fr 3fr 1fr;
+        grid-template-columns: 1fr 2fr 3fr 1fr 0.3fr;
         padding: 10px;
         border-bottom: 1px solid $border-color;
+        cursor: pointer;
+        align-items: center;
+
+        &:hover {
+            background-color: $border-color;
+        }
+
+        input {
+            height: 30px;
+            font-size: $font-size-base;
+        }
 
         .estado-detalle {
             width: 100px;
+            border: none;
         }
 
         .descripcion-detalle {
             width: 350px;
+            border: none;
         }
 
         .importe-detalle {
             width: 100px;
+            border: none;
         }
 
-        &:last-child {
-            border-bottom: none;
-        }
-
-        &:hover {
-            background-color: $border-color;
-            cursor: pointer;
-        }
 
         input[type="checkbox"] {
             align-self: center;
