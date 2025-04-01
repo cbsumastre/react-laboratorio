@@ -3,6 +3,7 @@ import cart from "../../assets/cart.svg"
 import { ShopContext } from "../../contexts/shopContext";
 import { CartCard } from "./cart-card";
 import { Modal } from "../modal";
+import { Checkout } from "../checkout";
 
 
 export const Cart: React.FC = () => {
@@ -45,7 +46,7 @@ export const Cart: React.FC = () => {
         shopContext && (shopContext.cartItems.length === 0 ?
           <p className="empty-cart">El carrito está vacío</p>
           :
-          shopContext.cartItems.map(id => <CartCard key={id} id={id} />))
+          shopContext.cartItems.map(id => <CartCard key={id} id={id} canRemove/>))
       }
     </main>
 
@@ -54,9 +55,8 @@ export const Cart: React.FC = () => {
         <button className="cart-empty-button" onClick={() => { handleEmpty() }}>Vaciar</button> <button className="cart-checkout-button" onClick={() => { handleCheckout() }}>Checkout</button></span>}
 
 
-    <Modal
+    <Checkout
       isOpen={isModalOpenCheckout}
-      message='¿Confirmar la compra?'
       onConfirm={handleConfirmarCompra}
       onCancel={handleCancelCompra}
     />
