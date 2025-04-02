@@ -122,7 +122,8 @@ main {
     }
 
     .container-cart {
-        position: relative;
+        // position: relative;
+        position: fixed;
         right: -100%;
         width: $width-cart;
         height: 600px;
@@ -226,7 +227,7 @@ main {
     }
 
     .opened {
-        right: 5%;
+        right: 15%;
     }
 }
 
