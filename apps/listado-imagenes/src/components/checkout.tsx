@@ -44,7 +44,7 @@ export const Checkout: React.FC<Props> = (props) => {
 
                         <div className="group">
                             <label htmlFor="titular">Titular</label>
-                            <input id="titular" type="text" placeholder="John Doe" value={titular} required onChange={(e)=>{
+                            <input id="titular" type="text" placeholder="Titular de la cuenta" value={titular} required onChange={(e)=>{
                                 setTitular(e.target.value)
                             }}/>
                         </div>
