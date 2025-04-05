@@ -6,6 +6,8 @@ import { EstadoPedido, EstadoPedidoDetalle, Pedido, PedidoCabecera, PedidoDetall
 interface PedidoContextType {
     pedido: Pedido,
     porcentajeEstado: number,
+    isTerminado: () => boolean,
+    isAnyDetallesSelected: () => boolean,
     setCabecera: (newCabecera: PedidoCabecera) => void;
     setEstado: (newEstado: EstadoPedido) => void;
     newDetalle: () => void;
@@ -35,8 +37,12 @@ export const PedidoProvider: React.FC<Props> = ({ children }) => {
 
     const calculaImporteTotal = (): number => {
         let importeTotal = 0;
-        pedido.detalles?.forEach(detalle => importeTotal += Number(detalle.importe))
-        console.log('calculaImporteTotal', importeTotal)
+        pedido.detalles?.forEach(detalle => {
+            if (!isNaN(parseInt(detalle.importe))) {
+                importeTotal += Number(detalle.importe)
+            }
+        })
+        // console.log('calculaImporteTotal', importeTotal)
         return Number(importeTotal.toFixed(2));
     }
 
@@ -72,7 +78,8 @@ export const PedidoProvider: React.FC<Props> = ({ children }) => {
             estado: EstadoPedidoDetalle.PENDIENTE,
             descripcion: "",
             importe: "0",
-            selected: false
+            selected: false,
+            error: false
         }
         const newDetalles = [...pedido.detalles]
         newDetalles.unshift(newDetalle)
@@ -121,6 +128,12 @@ export const PedidoProvider: React.FC<Props> = ({ children }) => {
     return (<PedidoContext.Provider value={{
         pedido,
         porcentajeEstado,
+        isTerminado: () => {
+            return pedido.estado===EstadoPedido.TERMINADO
+        },
+        isAnyDetallesSelected: () => {
+            return pedido.detalles.filter(detalle=>detalle.selected).length>0;
+        },
         setEstado,
         setCabecera,
         newDetalle,

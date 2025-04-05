@@ -15,6 +15,7 @@ body {
     margin: 0px;
     padding: 0px;
     color: $color-black;
+    font-family: "DM Sans", "Monserrat", "Lato", sans-serif;
 }
 
 
@@ -25,8 +26,6 @@ body {
     align-items: center;
     padding: 100px 20px 20px 20px;
     height: 100vh;
-
-    font-family: "DM Sans", "Monserrat", "Lato", sans-serif;
     font-size: $font-size-base;
     font-optical-sizing: auto;
     font-style: normal;
@@ -83,6 +82,7 @@ body {
 
         .fecha {
             width: 120px;
+            font-family: "DM Sans", "Monserrat", "Lato", sans-serif;
         }
     }
 
@@ -90,14 +90,14 @@ body {
         display: flex;
         width: 100%;
         justify-content: flex-end;
+        margin-top: 10px;
 
         button {
-            padding: 10px 20px;
+            padding: 8px 16px;
             color: $color-white;
             border: none;
-            margin-top: 10px;
-            padding: 15px;
-            border-radius: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
 
             &.disabled {
                 background-color: $color-button-disabled;
@@ -122,10 +122,10 @@ body {
     gap: 15px;
 
     button {
+        padding: 8px 16px;
         color: $color-white;
         border: none;
-        margin-top: 10px;
-        padding: 15px;
+
         border-radius: 6px;
 
         &.disabled {
@@ -141,8 +141,6 @@ body {
             }
         }
     }
-
-
 }
 
 .pedido-list {
@@ -184,15 +182,32 @@ body {
             border: none;
         }
 
-        .descripcion-detalle {
+        .descripcion-detalle{
             width: 350px;
             border: none;
+        }
+
+        .error {
+            border: 1px solid tomato;
+            color: tomato;
+        }
+
+        .descripcion-detalle-error {
+            @extend .descripcion-detalle;
+            @extend .error
         }
 
         .importe-detalle {
             width: 100px;
             border: none;
         }
+
+        .importe-detalle-error {
+            @extend .importe-detalle;
+            @extend .error;
+        }
+
+        
 
 
         input[type="checkbox"] {
