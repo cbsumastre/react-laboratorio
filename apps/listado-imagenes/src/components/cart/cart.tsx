@@ -52,7 +52,8 @@ export const Cart: React.FC = () => {
 
     {shopContext && shopContext.cartItems.length > 0 &&
       <span className="card-buttons ">
-        <button className="cart-empty-button" onClick={() => { handleEmpty() }}>Vaciar</button> <button className="cart-checkout-button" onClick={() => { handleCheckout() }}>Checkout</button></span>}
+        <button className="cancel-button empty-button" onClick={() => { handleEmpty() }}>Vaciar</button> 
+        <button className="confirm-button" onClick={() => { handleCheckout() }}>Checkout</button></span>}
 
 
     <Checkout
