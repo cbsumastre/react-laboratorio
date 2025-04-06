@@ -140,6 +140,8 @@ body {
                 background-color: $color-button-hover;
             }
         }
+
+        transition: background-color 0.3s;
     }
 }
 

@@ -4,15 +4,17 @@ import { EstadoPedido, EstadoPedidoDetalle, Pedido, PedidoCabecera, PedidoDetall
 
 
 interface PedidoContextType {
-    pedido: Pedido,
-    porcentajeEstado: number,
-    isTerminado: () => boolean,
-    isAnyDetallesSelected: () => boolean,
+    pedido: Pedido;
+    porcentajeEstado: number;
+    isValidDetalles: () => boolean;
+    isTerminado: () => boolean;
+    isAnyDetallesSelected: () => boolean;
     setCabecera: (newCabecera: PedidoCabecera) => void;
     setEstado: (newEstado: EstadoPedido) => void;
     newDetalle: () => void;
     setDetalles: (detalles: PedidoDetalle[]) => void;
-    removeDetalle: (id: string) => void
+    removeDetalle: (id: string) => void;
+    isValidPedido: () => boolean;
 }
 
 export const PedidoContext = React.createContext<PedidoContextType | undefined>(undefined)
@@ -125,20 +127,57 @@ export const PedidoProvider: React.FC<Props> = ({ children }) => {
         return porcentajeCompletado;
     }
 
+    const isDetalleConError = (detalle: PedidoDetalle) => {
+        console.log('isDetalleConError', !detalle.descripcion, !detalle.importe, isNaN(parseInt(detalle.importe)), parseInt(detalle.importe) <= 0);
+        return !detalle.descripcion || !detalle.importe || isNaN(parseInt(detalle.importe)) || parseInt(detalle.importe) <= 0;
+    }
+
+    const isValidDetalles = () => {
+        const newDetalles = [...pedido.detalles.map(detalle => {
+            return { ...detalle, error: isDetalleConError(detalle) }
+        })]
+        setDetalles(newDetalles);
+        return newDetalles.filter(detalle => detalle.error).length == 0
+    }
+
+    const isValidPedido = () => {
+        const { id, idProveedor, fecha } = pedido.cabecera
+        console.log(id, idProveedor, fecha)
+        if (!id) {
+            return false;
+        }
+        if (!idProveedor) {
+            return false;
+        }
+        const fechaDate = new Date(fecha);
+        if (isNaN(fechaDate.getTime())) {
+            return false;
+        }
+        const currentDate = new Date();
+        currentDate.setHours(0, 0, 0, 0);
+        if (fechaDate < currentDate) {
+            return false;
+        }
+
+        return isValidDetalles()
+    }
+
     return (<PedidoContext.Provider value={{
         pedido,
         porcentajeEstado,
         isTerminado: () => {
-            return pedido.estado===EstadoPedido.TERMINADO
+            return pedido.estado === EstadoPedido.TERMINADO
         },
+        isValidDetalles,
         isAnyDetallesSelected: () => {
-            return pedido.detalles.filter(detalle=>detalle.selected).length>0;
+            return pedido.detalles.filter(detalle => detalle.selected).length > 0;
         },
         setEstado,
         setCabecera,
         newDetalle,
         setDetalles,
-        removeDetalle
+        removeDetalle,
+        isValidPedido
     }}>
         {children}
     </PedidoContext.Provider>)

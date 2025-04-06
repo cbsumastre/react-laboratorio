@@ -103,7 +103,7 @@ export const Pedido: React.FC = () => {
             <span className="estado-detalle">{item.estado}</span>
             <span><input type="text" value={item.descripcion} onChange={(e) => handleChangeDescripcion(e, index)} className={item.error ? 'descripcion-detalle-error' : 'descripcion-detalle'} disabled={pedidoContext?.isTerminado() || item.estado === EstadoPedidoDetalle.VALIDADO} /></span>
             <span><input type="text" value={item.importe} onChange={(e) => handleChangeImporteDetalle(e, index)} className={item.error ? 'importe-detalle-error' : 'importe-detalle'} disabled={pedidoContext?.isTerminado() || item.estado === EstadoPedidoDetalle.VALIDADO} /></span>
-            <span>{!pedidoContext?.isTerminado() && <DeleteIcon onClick={(_e) => handleRemoveDetalle(item.id)} fontSize='small' />}</span>
+            <span>{!pedidoContext?.isTerminado() && item.estado!==EstadoPedidoDetalle.VALIDADO && <DeleteIcon onClick={(_e) => handleRemoveDetalle(item.id)} fontSize='small' />}</span>
           </div>
         ))}
       </div>

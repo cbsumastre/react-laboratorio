@@ -2,16 +2,12 @@ import React from 'react';
 
 import { getProveedores } from './services/proveedores';
 import { PedidoContext } from './contexts/pedidoContext';
-import { EstadoPedido, EstadoPedidoDetalle, PedidoDetalle } from './types';
+import { EstadoPedido, EstadoPedidoDetalle } from './types';
 
 export const PedidoHeader: React.FC = () => {
 
   const pedidoContext = React.useContext(PedidoContext)
 
-  const isDetalleConError = (detalle: PedidoDetalle) => {
-    console.log('isDetalleConError', !detalle.descripcion, !detalle.importe, isNaN(parseInt(detalle.importe)), parseInt(detalle.importe) <= 0);
-    return !detalle.descripcion || !detalle.importe || isNaN(parseInt(detalle.importe)) || parseInt(detalle.importe) <= 0;
-  }
 
   const handleChangeNumeroPedido = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e);
@@ -37,27 +33,13 @@ export const PedidoHeader: React.FC = () => {
     })
   };
 
-  const isValidDetalles = () => {
-    if (pedidoContext) {
-      const newDetalles = [...pedidoContext.pedido.detalles.map(detalle => {
-        return { ...detalle, error: isDetalleConError(detalle) }
-      })]
 
-      if (newDetalles.filter(detalle => detalle.error).length > 0) {
-        return true;
-      }
-      else {
-        pedidoContext.setDetalles(newDetalles)
-      }
-    }
-    return false;
-  }
 
   const handleEnviar = () => {
     if (!pedidoContext) {
       return;
     }
-    if (isValidDetalles()) {
+    if (pedidoContext.isValidPedido()) {
       pedidoContext.setEstado(EstadoPedido.TERMINADO);
     }
   }
@@ -66,7 +48,7 @@ export const PedidoHeader: React.FC = () => {
     if (!pedidoContext) {
       return;
     }
-    if (pedidoContext.isAnyDetallesSelected() && isValidDetalles()) {
+    if (pedidoContext.isAnyDetallesSelected() && pedidoContext.isValidDetalles()) {
       changeEstadoPedidoDetalle(EstadoPedidoDetalle.VALIDADO);
     }
   }
@@ -75,7 +57,7 @@ export const PedidoHeader: React.FC = () => {
     if (!pedidoContext) {
       return;
     }
-    if (pedidoContext.isAnyDetallesSelected() && isValidDetalles()) {
+    if (pedidoContext.isAnyDetallesSelected() && pedidoContext.isValidDetalles()) {
       changeEstadoPedidoDetalle(EstadoPedidoDetalle.PENDIENTE);
     }
   }
@@ -113,6 +95,7 @@ export const PedidoHeader: React.FC = () => {
           <input type="text" className="numero-pedido" value={pedidoContext?.pedido.cabecera.id} onChange={handleChangeNumeroPedido} />
           <label>Proveedor</label>
           <select value={pedidoContext?.pedido.cabecera.idProveedor} onChange={handleChangeProveedor} className="proveedor">
+            <option value="">-- Selecciona un proveedor --</option>
             {getProveedores().map((proveedor) => (
               <option key={proveedor.id} value={proveedor.id}>
                 {proveedor.descripcion}
@@ -135,8 +118,8 @@ export const PedidoHeader: React.FC = () => {
 
 
       {!pedidoContext?.isTerminado() && <div className="validation-buttons">
-        {pedidoContext?.pedido.detalles && pedidoContext.pedido.detalles.length > 0 && <button className={pedidoContext?.isAnyDetallesSelected() ? 'enabled':'disabled'} onClick={handleValidar}>Validar</button>}
-        {pedidoContext?.pedido.detalles && pedidoContext.pedido.detalles.length > 0 && <button className={pedidoContext?.isAnyDetallesSelected() ? 'enabled': 'disabled'} onClick={handleInvalidar}>Invalidar</button>}
+        {pedidoContext?.pedido.detalles && pedidoContext.pedido.detalles.length > 0 && <button className={pedidoContext?.isAnyDetallesSelected() ? 'enabled' : 'disabled'} onClick={handleValidar}>Validar</button>}
+        {pedidoContext?.pedido.detalles && pedidoContext.pedido.detalles.length > 0 && <button className={pedidoContext?.isAnyDetallesSelected() ? 'enabled' : 'disabled'} onClick={handleInvalidar}>Invalidar</button>}
       </div>}
     </header>
 
