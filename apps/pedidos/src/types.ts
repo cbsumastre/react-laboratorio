@@ -34,6 +34,7 @@ export interface PedidoDetalle {
   descripcion: string;
   importe: string;
   selected: boolean;
-  error: boolean;
+  descripcionError: boolean,
+  importeError: boolean
 }
 

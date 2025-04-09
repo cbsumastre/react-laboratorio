@@ -40,7 +40,7 @@ Un mock de como sería la ventana:
 
 Plantéate arrancar por:
 
-- Un contenedor que tenga la información del pedido completo.
+- Un contenedor que tenga la información del pedido completo. 
 
 - Un componente cabecera:
 
@@ -70,7 +70,7 @@ Plantéate arrancar por:
 
 Con qué podemos jugar adicionalmente:
 
-- Podrías tener un contexto que wrapeara a esta ventana y no tener que pasar cabecera y detalle para abajo directamente tirar del contexto.
+- Podrías tener un contexto que wrapeara a esta ventana y no tener que pasar cabecera y detalle para abajo directamente tirar del contexto. ✅
 
 - Podrías romper el componente de cabecera en dos hijos:
 
@@ -80,9 +80,9 @@ Con qué podemos jugar adicionalmente:
 
 - También puedes probar a resolver el ejercicio utilizando useReducer:
 
-    - En el contenedor tendrías el reducer, pasarías el estado para abajo, también el dispatch.
+    - En el contenedor tendrías el reducer, pasarías el estado para abajo, también el dispatch. ✅
 
-    - Vas actualizando toda la info que falta en el reducer.
+    - Vas actualizando toda la info que falta en el reducer.✅
 
 ##  Instrucciones
 | Instrucción               |                                                                         |

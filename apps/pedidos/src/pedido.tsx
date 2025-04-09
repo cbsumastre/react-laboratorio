@@ -8,8 +8,6 @@ import { PedidoContext } from './contexts/pedidoContext';
 import { PedidoHeader } from './pedido-header';
 
 
-const regex = /^\d*\.?\d*$/; // Expresión regular para números y decimales
-
 export const Pedido: React.FC = () => {
   const pedidoContext = React.useContext(PedidoContext)
 
@@ -21,9 +19,17 @@ export const Pedido: React.FC = () => {
     }
   }, [pedidoContext?.pedido.estado])
 
+  const isDescripcionConError = React.useCallback((detalle: PedidoDetalle) => {
+    return !detalle.descripcion;
+  }, []);
+
+  const isImporteConError = React.useCallback((detalle: PedidoDetalle) => {
+    return !detalle.importe || isNaN(Number(detalle.importe)) || Number(detalle.importe) <= 0;
+  }, []);
+
   const handleChangeCheckDetalles = (checked: boolean) => {
     const newDetalles = pedidoContext?.pedido.detalles.map((detalle) => {
-      return { ...detalle, selected: checked};
+      return { ...detalle, selected: checked };
     })
     if (newDetalles) {
       pedidoContext?.setDetalles(newDetalles);
@@ -49,7 +55,8 @@ export const Pedido: React.FC = () => {
 
     const newDetalles = pedidoContext?.pedido.detalles.map((detalle, i) => {
       if (i === index) {
-        return { ...detalle, importe: inputValue }
+        const updatedDetalle = { ...detalle, importe: inputValue };
+        return { ...updatedDetalle, descripcionError: isDescripcionConError(updatedDetalle), importeError: isImporteConError(updatedDetalle) }
       }
       return detalle;
     })
@@ -65,7 +72,8 @@ export const Pedido: React.FC = () => {
 
     const newDetalles = pedidoContext?.pedido.detalles.map((detalle, i) => {
       if (i === index) {
-        return { ...detalle, descripcion: inputValue }
+        const updatedDetalle = { ...detalle, descripcion: inputValue };
+        return { ...updatedDetalle, descripcionError: isDescripcionConError(updatedDetalle), importeError: isImporteConError(updatedDetalle) }
       }
       return detalle
     })
@@ -74,17 +82,13 @@ export const Pedido: React.FC = () => {
     }
   }
 
-
-
   const handleRemoveDetalle = (id: string) => {
     pedidoContext?.removeDetalle(id)
   }
 
-
   const handleAddDetalle = () => {
     pedidoContext?.newDetalle()
   }
-
 
   return (
     <div className="container-app">
@@ -101,9 +105,9 @@ export const Pedido: React.FC = () => {
           <div className="detalle" key={index}>
             <span>{!pedidoContext?.isTerminado() && <input type="checkbox" checked={item.selected} onChange={e => handleChangeSelectedDetalle(e, index)} />}</span>
             <span className="estado-detalle">{item.estado}</span>
-            <span><input type="text" value={item.descripcion} onChange={(e) => handleChangeDescripcion(e, index)} className={item.error ? 'descripcion-detalle-error' : 'descripcion-detalle'} disabled={pedidoContext?.isTerminado() || item.estado === EstadoPedidoDetalle.VALIDADO} /></span>
-            <span><input type="text" value={item.importe} onChange={(e) => handleChangeImporteDetalle(e, index)} className={item.error ? 'importe-detalle-error' : 'importe-detalle'} disabled={pedidoContext?.isTerminado() || item.estado === EstadoPedidoDetalle.VALIDADO} /></span>
-            <span>{!pedidoContext?.isTerminado() && item.estado!==EstadoPedidoDetalle.VALIDADO && <DeleteIcon onClick={(_e) => handleRemoveDetalle(item.id)} fontSize='small' />}</span>
+            <span><input type="text" value={item.descripcion} onChange={(e) => handleChangeDescripcion(e, index)} className={item.descripcionError ? 'descripcion-detalle-error' : 'descripcion-detalle'} disabled={pedidoContext?.isTerminado() || item.estado === EstadoPedidoDetalle.VALIDADO} /></span>
+            <span><input type="text" value={item.importe} onChange={(e) => handleChangeImporteDetalle(e, index)} className={item.importeError ? 'importe-detalle-error' : 'importe-detalle'} disabled={pedidoContext?.isTerminado() || item.estado === EstadoPedidoDetalle.VALIDADO} /></span>
+            <span>{!pedidoContext?.isTerminado() && item.estado !== EstadoPedidoDetalle.VALIDADO && <DeleteIcon onClick={(_e) => handleRemoveDetalle(item.id)} fontSize='small' />}</span>
           </div>
         ))}
       </div>
